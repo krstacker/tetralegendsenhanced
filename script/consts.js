@@ -3188,6 +3188,7 @@ KICK_TEMPLATES.newcentury = KICK_TEMPLATES.srs
 KICK_TEMPLATES.heboris = KICK_TEMPLATES.ars
 KICK_TEMPLATES.party = KICK_TEMPLATES.friends
 KICK_TEMPLATES.tonline = KICK_TEMPLATES.srs
+/*
 KICK_TEMPLATES.krs = {
   x: {
 	...KICK_TEMPLATES.ascx.x,
@@ -3711,6 +3712,14 @@ KICK_TEMPLATES.krs = {
   O: {
     ...KICK_TEMPLATES.ascx.x,
   },
+}
+*/
+KICK_TEMPLATES.krs = {
+  x: KICK_TEMPLATES.ascx.x,  
+  I: KICK_TEMPLATES.ascx.x,
+  LJ: KICK_TEMPLATES.tetrax.x,
+  T: KICK_TEMPLATES.tetrax.x,
+  O: KICK_TEMPLATES.ascx.x,
 }
 KICK_TEMPLATES.ksc = {
   x: {
