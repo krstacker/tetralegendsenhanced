@@ -404,7 +404,7 @@ export default class Game {
     }
   }
   pause() {
-    if (this.type === "nontwo") {
+    if (this.type === "nontwo" || this.type === "beat") {
       return
     }
     if (this.isPaused || this.noUpdate) {

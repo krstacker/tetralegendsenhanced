@@ -108,18 +108,6 @@
       "description": "Go to the GitHub Repository of Tetra Legends Enhanced",
       "action": "link",
       "url": "https://github.com/krsofficial/tetralegends/"
-    },
-	{
-      "label": "OTHER PROJECTS",
-      "fixedText": true,
-      "type": "overline"
-    },
-	{
-      "fixedText": true,
-      "label": "KRS",
-      "description": "Arcade stacker that adds a twist to the puzzle's formula.",
-      "action": "link",
-      "url": "https://krsofficial.github.io/krs/"
     }
   ]
 }

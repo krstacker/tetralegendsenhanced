@@ -195,10 +195,11 @@ export default class Stack extends GameModule {
 		$(".stack-canvas").classList.remove("outlineoff")
 		$(".stack-canvas").classList.add("invis")
 		this.fadePlacedMinos()
-	}
-	if (this.isHidden) {
+	} else if (this.isHidden) {
 		$(".stack-canvas").classList.remove("outlineoff")
 		$(".stack-canvas").classList.add("invis")
+	} else {
+		$(".stack-canvas").classList.remove("invis")
 	}
 	this.resetLastPlacedBlocks()
     for (let y = 0; y < shape.length; y++) {
@@ -310,10 +311,10 @@ export default class Stack extends GameModule {
     }
     const version = isMini ? "mini" : ""
     if (this.lineClear >= 4 && this.flashOnTetris) {
-	  if (this.parent.piece.useBoneBlocks || settings.settings.outline !== true) {
-		resetAnimation("#stack", "tetris-flash-outlineoff")
-	  } else if (this.isFading || this.isHidden) {
+	  if (this.isFading || this.isHidden) {
 		resetAnimation("#stack", "tetris-flash-invis")
+	  } else if (this.parent.piece.useBoneBlocks || settings.settings.outline !== true) {
+		resetAnimation("#stack", "tetris-flash-outlineoff")
 	  } else {
 		resetAnimation("#stack", "tetris-flash")
 	  }
