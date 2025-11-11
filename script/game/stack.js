@@ -69,10 +69,8 @@ export default class Stack extends GameModule {
     }
   }
   reRenderStack() {
-	  if (game.isDirty !== true) {
-		this.makeAllDirty()
-		this.isDirty = true
-	}
+	this.makeAllDirty()
+	this.isDirty = true
   }
   freezePlacedMinos() {
     for (let x = 0; x < this.grid.length; x++) {
@@ -997,7 +995,8 @@ export default class Stack extends GameModule {
         ctx.fillStyle = `#ffffff${flash}`
         if (
           settings.settings.lockFlash !== "off" &&
-          settings.settings.lockFlash !== "flash"
+          settings.settings.lockFlash !== "flash" &&
+		  this.parent.piece.useBoneBlocks !== true
         ) {
           ctx.fillRect(x, Math.floor(y), cellSize, cellSize)
         }
@@ -1043,7 +1042,8 @@ export default class Stack extends GameModule {
           ctx.fill()
         }
         // Solid white 2f
-        if (this.flashTime < 50 && settings.settings.lockFlash !== "off") {
+        if (this.flashTime < 50 && settings.settings.lockFlash !== "off"
+		&& this.parent.piece.useBoneBlocks !== true) {
           ctx.globalCompositeOperation = "source-over"
           ctx.fillStyle = `#fff`
           ctx.fillRect(x, Math.floor(y), cellSize, cellSize)
@@ -1051,7 +1051,9 @@ export default class Stack extends GameModule {
       }
     }
     // Line clear animation
-    if (this.toCollapse.length > 0 && this.isFrozen !== true) {
+    if (this.toCollapse.length > 0 
+	&& this.isFrozen !== true 
+	&& this.parent.piece.useBoneBlocks !== true) {
       const brightness = Math.max(
         0,
         1 -
@@ -1105,7 +1107,7 @@ export default class Stack extends GameModule {
           )
         }
       }
-  } else if (this.isFrozen === true) {
+  } else if (this.toCollapse.length > 0) {
 	  for (const i of this.toCollapse) {
 		this.parent.particle.generate({
           amount: 2,

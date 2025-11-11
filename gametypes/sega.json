@@ -27,5 +27,5 @@
   "hold": {
     "isDisabled": true
   },
-  "stats": ["score", "level", "fallspeed", "line", "piece"]
+  "stats": ["score", "level", "line", "piece"]
 }

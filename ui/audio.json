@@ -168,6 +168,11 @@
           "label": "Heboris",
           "fixedText": true,
           "value": "heboris"
+        },
+		{
+          "label": "LJ65",
+          "fixedText": true,
+          "value": "lj65"
         }
       ],
       "setting": "soundbank",
@@ -180,14 +185,34 @@
       "action": "select",
       "selectOptions": [
         {
-          "label": "On",
-          "fixedText": true,
-          "value": "auto"
+          "string": "auto",
+          "value": "auto",
+          "langOverride": "menu_general"
         },
         {
-          "label": "Off",
+          "label": "TGM",
           "fixedText": true,
-          "value": "off"
+          "value": "tgm3"
+        },
+        {
+          "label": "TETR.IO",
+          "fixedText": true,
+          "value": "tetrio"
+        },
+        {
+          "label": "NullpoMino",
+          "fixedText": true,
+          "value": "nullpomino"
+        },
+		{
+          "label": "Morse",
+          "fixedText": true,
+          "value": "morse"
+        },
+        {
+          "string": "offOption",
+          "value": "off",
+          "langOverride": "mode-options"
         }
       ],
       "setting": "nextSoundbank",

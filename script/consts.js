@@ -4103,24 +4103,6 @@ export const PIECE_COLORS = {
     S: "orange",
   },
   handheld: {
-    I: "red",
-    L: "orange",
-    O: "yellow",
-    Z: "green",
-    T: "lightBlue",
-    J: "blue",
-    S: "purple",
-  },
-  deluxe: {
-    I: "red",
-    L: "orange",
-    O: "yellow",
-    Z: "green",
-    T: "lightBlue",
-    J: "blue",
-    S: "purple",
-  },
-  handheldNoSkin: {
     I: "green",
     L: "green",
     O: "green",
@@ -4129,7 +4111,7 @@ export const PIECE_COLORS = {
     J: "green",
     S: "green",
   },
-  deluxeNoSkin: {
+  deluxe: {
     I: "orange",
     L: "red",
     O: "yellow",
@@ -4182,6 +4164,15 @@ export const PIECE_COLORS = {
     T: "green",
     J: "green",
     S: "green",
+  },
+  standard: {
+    I: "red",
+    L: "orange",
+    O: "yellow",
+    Z: "green",
+    T: "lightBlue",
+    J: "blue",
+    S: "purple",
   },
 }
 PIECE_COLORS.asc = PIECE_COLORS.srs
@@ -5208,7 +5199,7 @@ export const SOUND_SETS = {
   arsti: "tgm3",
   arsx: "ace",
   oshisaure: "tetrax",
-  original: "tetrax",
+  original: "lj65",
   ace: "ace",
   aceworld: "ace",
   battle: "battle",

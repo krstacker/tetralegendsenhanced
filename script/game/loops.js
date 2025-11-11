@@ -78,6 +78,7 @@ let regretsPenalty = 0
 let coolsBonus = 0
 let coolPacing = 50
 let shiraseTargetLevel = 1300
+let segaSkin = "sega"
 let bpm
 const levelUpdate = (game) => {
   let returnValue = false
@@ -8082,6 +8083,20 @@ export const loops = {
 	  game.hideGrid = true
 	  game.stack.updateGrid()
       game.lineGoal = null
+      //game.colors = PIECE_COLORS.sega;
+	  segaSkin = "sega"
+	  if (game.settings.rotationSystem === "handheld") {
+		  game.colors = PIECE_COLORS.handheld
+		  segaSkin = "handheld"
+	  }
+	  if (game.settings.rotationSystem === "deluxe") {
+		  game.colors = PIECE_COLORS.deluxe
+		  segaSkin = "deluxe"
+	  }
+	  if (game.settings.rotationSystem === "retro") {
+		  game.colors = PIECE_COLORS.retro
+		  segaSkin = "retro"
+	  }
 	  game.makeSprite(
 		[
 			"red",
@@ -8095,18 +8110,8 @@ export const loops = {
 			"black",
 		],
 		["mino", "stack"],
-		"sega"
+		segaSkin
 	  )
-      //game.colors = PIECE_COLORS.sega;
-	  if (game.settings.rotationSystem === "handheld") {
-		  game.colors = PIECE_COLORS.handheldNoSkin
-	  }
-	  if (game.settings.rotationSystem === "deluxe") {
-		  game.colors = PIECE_COLORS.deluxeNoSkin
-	  }
-	  if (game.settings.rotationSystem === "retro") {
-		  game.colors = PIECE_COLORS.retro
-	  }
       game.stat.level = 0
       lastLevel = 0
 	  levelTimer = 0

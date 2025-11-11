@@ -74,6 +74,9 @@ export default class Particle extends GameModule {
     if (!settings.settings.particles) {
       return
     }
+	if (gameHandler.game.piece.useBoneBlocks) {
+	  return
+	}
     const p = {
       amount: 1,
       red: 255,
