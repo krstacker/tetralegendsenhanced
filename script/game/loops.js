@@ -5563,6 +5563,12 @@ export const loops = {
       ) {
         const eType = nonEvents[0][2]
         switch (eType) {
+		  case "disableFireworks":
+		    document.getElementById("fireWorks").style.opacity = 0
+			break
+		  case "enableFireworks":
+		    document.getElementById("fireWorks").style.opacity = 1
+		    break
           case "flashBg":
             resetAnimation("body", "non-flash")
             break
@@ -5651,6 +5657,7 @@ export const loops = {
           "showMessage",
           '<small style="font-size: .75em">Night of Nights X',
         ],
+		[5, 1, "disableFireworks"],
         [5, 1, "setFlashSpeed", 0.7],
         [5, 1, "flashBg"],
         [5, 1, "silOn"],
@@ -6014,6 +6021,7 @@ export const loops = {
         [40, 15, "flashBg"],
         [41, 1, "silBoardOff"],
         [41, 1, "silPieceOff"],
+		[41, 1, "enableFireworks"],
         [41, 1, "transform", [PERS, 0, 0, 0, 180, 0, 0]],
         [41, 1, "showMessage", "1/60G"],
         [41, 1, "gravChange", 1000],
@@ -6023,6 +6031,7 @@ export const loops = {
         [48, 13, "setFlashSpeed", 2.6],
         [48, 13, "flashBg"],
         [49, 1, "silBoardOn"],
+		[49, 1, "disableFireworks"],
         [49, 1, "showMessage", "1G"],
         [49, 1, "gravChange", 16.6666666667],
         [49, 1, "changeNext", 6],
@@ -7069,6 +7078,7 @@ export const loops = {
         [96, 1, "flashBg"],
 
         [97, 1, "silOff"],
+		[97, 1, "enableFireworks"],
         [97, 1, "showMessage", "1/60G"],
         [97, 1, "gravChange", 1000],
         [97, 1, "tranSpeed", 12],

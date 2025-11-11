@@ -73,6 +73,7 @@ export default class Game {
 //	  document.getElementById("fireWorks").style.opacity = 1
 //	  document.getElementById("arcadeBackground").style.opacity = 0
 //    }
+	document.getElementById("fireWorks").style.opacity = 1
     this.userSettings = { ...settings.settings }
     this.type = gametype
     this.pieceCanvas = $("#piece")
@@ -421,7 +422,7 @@ export default class Game {
     }
   }
   hide() {
-    if (this.type === "nontwo") this.die()
+    if (this.type === "nontwo" || this.type === "beat") this.die()
     $("#game-container").classList.add("hidden")
     this.isVisible = false
   }
