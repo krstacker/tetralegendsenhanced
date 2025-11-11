@@ -8086,11 +8086,11 @@ export const loops = {
       //game.colors = PIECE_COLORS.sega;
 	  segaSkin = "sega"
 	  if (game.settings.rotationSystem === "handheld") {
-		  game.colors = PIECE_COLORS.handheld
+		  game.colors = PIECE_COLORS.standard
 		  segaSkin = "handheld"
 	  }
 	  if (game.settings.rotationSystem === "deluxe") {
-		  game.colors = PIECE_COLORS.deluxe
+		  game.colors = PIECE_COLORS.standard
 		  segaSkin = "deluxe"
 	  }
 	  if (game.settings.rotationSystem === "retro") {
