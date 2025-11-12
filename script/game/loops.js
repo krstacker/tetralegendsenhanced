@@ -632,7 +632,7 @@ export const loops = {
       //extendedLockdown(arg);
       //classicLockdown(arg);
 	  if (
-		gamehandler.game.type === "normal21"
+		gameHandler.game.type === "normal21"
 		) {
 		  if (input.getGameDown("specialKey")) {
 			tgmSoftDrop(arg)
@@ -643,7 +643,7 @@ export const loops = {
 		  }
 		  extendedLockdown(arg)
 	  } else if (
-		gamehandler.game.type === "normal21world"
+		gameHandler.game.type === "normal21world"
 	  ) {
 		  tgmSoftDrop(arg)
 		  hardDrop(arg)
@@ -662,8 +662,8 @@ export const loops = {
     },
     onInit: (game) => {
 	  if (
-		gamehandler.game.type === "normal21" ||
-		gamehandler.game.type === "normal21world"
+		gameHandler.game.type === "normal21" ||
+		gameHandler.game.type === "normal21world"
 		) {
 		  game.hold.isDisabled = false
 		  game.next.nextLimit = 6
@@ -1251,7 +1251,7 @@ export const loops = {
       //extendedLockdown(arg);
       //classicLockdown(arg)
 	  if (
-		gamehandler.game.type === "normal31"
+		gameHandler.game.type === "normal31"
 		) {
 		  if (input.getGameDown("specialKey")) {
 			tgmSoftDrop(arg)
@@ -1263,7 +1263,7 @@ export const loops = {
 		  extendedLockdown(arg)
 		  game.piece.boneColor = "white"
 	  } else if (
-		gamehandler.game.type === "normal31world"
+		gameHandler.game.type === "normal31world"
 	  ) {
 		  tgmSoftDrop(arg)
 		  hardDrop(arg)
@@ -1288,7 +1288,7 @@ export const loops = {
           if (game.stat.level >= 500 && 
 		  (game.stat.level <= 1000 ||
 		  gameHandler.game.type === "normal31" ||
-		  gamehandler.game.type === "normal31world")) {
+		  gameHandler.game.type === "normal31world")) {
 			  arg.stack.addGarbageToCounter(1)
 		  }
         }
@@ -1297,8 +1297,8 @@ export const loops = {
     },
     onInit: (game) => {
 	  if (
-		gamehandler.game.type === "normal31" ||
-		gamehandler.game.type === "normal31world"
+		gameHandler.game.type === "normal31" ||
+		gameHandler.game.type === "normal31world"
 		) {
 		  game.next.nextLimit = 6
 		  shiraseTargetLevel = 2000
@@ -1927,7 +1927,7 @@ export const loops = {
       //hardDrop(arg)
       //extendedLockdown(arg)
 	  if (
-		gamehandler.game.type === "normal31"
+		gameHandler.game.type === "normal31"
 		) {
 		  if (input.getGameDown("specialKey")) {
 			tgmSoftDrop(arg)
@@ -1939,7 +1939,7 @@ export const loops = {
 		  extendedLockdown(arg)
 		  game.piece.boneColor = "white"
 	  } else if (
-		gamehandler.game.type === "normal31world"
+		gameHandler.game.type === "normal31world"
 	  ) {
 		  tgmSoftDrop(arg)
 		  hardDrop(arg)
@@ -1964,7 +1964,7 @@ export const loops = {
           if (game.stat.level >= 500 && 
 		  (game.stat.level <= 1000 ||
 		  gameHandler.game.type === "normal31" ||
-		  gamehandler.game.type === "normal31world")) {
+		  gameHandler.game.type === "normal31world")) {
 			  arg.stack.addGarbageToCounter(1)
 		  }
         }
@@ -1973,8 +1973,8 @@ export const loops = {
     },
     onInit: (game) => {
 	  if (
-		gamehandler.game.type === "normal31" ||
-		gamehandler.game.type === "normal31world"
+		gameHandler.game.type === "normal31" ||
+		gameHandler.game.type === "normal31world"
 		) {
 		  game.next.nextLimit = 6
 		  shiraseTargetLevel = 2000
