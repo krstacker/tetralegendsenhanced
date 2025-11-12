@@ -401,9 +401,9 @@ export default class Game {
       : new Date().getTime()
   }
   die() {
-	document.getElementById("fireWorks").style.opacity = 1
     cancelAnimationFrame(this.request)
     this.isDead = true
+	document.getElementById("fireWorks").style.opacity = 1
   }
   end(victory = false) {
 	document.getElementById("fireWorks").style.opacity = 1

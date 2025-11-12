@@ -113,7 +113,7 @@ export function beatLockdown(arg) {
   const piece = arg.piece
   piece.lockDelay = 0
   piece.lockdownType = "classic"
-  let bpmInMs = gameHandler.game.beatTime
+  let bpmInMs = gameHandler.game.bpmInMs
 
   /*switch (gameHandler.game.type) {
     case "non":

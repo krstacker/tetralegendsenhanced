@@ -5513,6 +5513,7 @@ export const loops = {
       }
       /* game.isRaceMode = true; */
       game.beatTime = bpmToMs(bpm)
+	  game.bpmInMs = bpmToMs(bpm)
       game.updateStats()
     },
   },
