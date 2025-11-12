@@ -33,6 +33,14 @@
       "stringDesc": "segaDescription",
       "action": "submenu",
       "submenu": "mode/sega"
+    },
+	{
+      "fixedText": true,
+	  "secretA": true,
+      "label": "Cabinet+",
+      "description": "Congratulations! You have found a secret mode!",
+      "action": "submenu",
+      "submenu": "mode/sega2"
     }
   ]
 }

@@ -45,14 +45,6 @@
       "setting": "difficulty",
       "gameName": "sega",
       "settingType": "game"
-    },
-	{
-      "fixedText": true,
-	  "secretA": true,
-      "label": "???",
-      "description": "???",
-      "action": "submenu",
-      "submenu": "mode/sega2"
     }
   ]
 }

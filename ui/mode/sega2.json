@@ -1,13 +1,13 @@
 {
   "properties": {
-    "parent": "mode/sega",
+    "parent": "retro",
     "langOverride": "mode-options",
     "game": "sega2",
     "pgmusic": "pg-sega"
   },
   "data": [
     {
-      "label": "???",
+      "label": "Cabinet+",
       "fixedText": true,
       "type": "header"
     }
