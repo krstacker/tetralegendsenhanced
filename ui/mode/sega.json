@@ -40,17 +40,19 @@
 		  "description": "",
           "fixedText": true,
           "value": 4
-        },
-		{
-          "label": "EXTREME",
-		  "description": "",
-          "fixedText": true,
-          "value": 5
         }
       ],
       "setting": "difficulty",
       "gameName": "sega",
       "settingType": "game"
+    },
+	{
+      "fixedText": true,
+	  "secretA": true,
+      "label": "???",
+      "description": "???",
+      "action": "submenu",
+      "submenu": "mode/sega2"
     }
   ]
 }

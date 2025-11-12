@@ -8121,6 +8121,10 @@ export const loops = {
 		  game.colors = PIECE_COLORS.retro
 		  segaSkin = "retro"
 	  }
+	  if (game.settings.rotationSystem === "original") {
+		  game.colors = PIECE_COLORS.original
+		  segaSkin = "bone"
+	  }
 	  game.makeSprite(
 		[
 			"red",
@@ -8142,6 +8146,136 @@ export const loops = {
 	  levelTimerLimit = 58000
 	  lastPieces = 0
       game.piece.gravity = 500
+      updateFallSpeed(game)
+      game.updateStats()
+    },
+  },
+  sega2: {
+    update: (arg) => {
+	  const game = gameHandler.game
+	  updateSegaBg(game)
+	  levelTimer += arg.ms
+      collapse(arg)
+      if (arg.piece.inAre) {
+        initialDas(arg)
+        arg.piece.are += arg.ms
+      } else {
+        respawnPiece(arg)
+        rotate(arg)
+        shifting(arg)
+      }
+      gravity(arg)
+      firmDrop(arg)
+      classicLockdown(arg)
+      lockFlash(arg)
+      updateLasts(arg)
+	  if (game.stat.score >= 999999) {
+		  game.stat.score = 999999
+	  }
+    },
+    onPieceSpawn: (game) => {
+      //game.stat.level = Math.floor(game.stat.line / 8)
+	  if (game.stat.level < 1) {
+		  levelTimerLimit = 58000
+	  } else if (game.stat.level >= 1 && game.stat.level < 9) {
+		  levelTimerLimit = 38670
+	  } else if (game.stat.level >= 9 && game.stat.level < 11) {
+		  levelTimerLimit = 58000
+	  } else if (game.stat.level >= 11 && game.stat.level <15) {
+		  levelTimerLimit = 29000
+	  } else {
+		  levelTimerLimit = 58000
+	  }
+	  if (Math.floor(game.stat.line / 4) > game.stat.level) {
+		  levelTimer = 0
+		  game.stat.level += 1
+	  } else if (levelTimer >= levelTimerLimit && game.stat.piece > lastPieces) {
+		  levelTimer = 0
+		  game.stat.level += 1
+	  }
+	  lastPieces = game.stat.piece
+      const x = game.stat.level
+      const gravityEquation = (0.8 - (x - 1) * 0.007) ** (x - 1)
+	  let gravityMultiplier = 150
+      game.piece.gravity = Math.max(gravityEquation * gravityMultiplier, framesToMs(1))
+      game.piece.lockDelayLimit = 500
+      updateFallSpeed(game)
+	  game.piece.ghostIsVisible = false
+	  const musicProgressionTable = [
+        [8, 1],
+        [16, 2],
+        [24, 3],
+      ]
+	  for (const pair of musicProgressionTable) {
+        const level = pair[0]
+        const entry = pair[1]
+        if (game.stat.level >= level && game.musicProgression < entry) {
+          switch (entry) {
+            case 1:
+			  sound.loadBgm(["sega2"], "sega")
+              sound.killBgm()
+              sound.playBgm(["sega2"], "sega")
+              break
+            case 2:
+              sound.loadBgm(["sega3"], "sega")
+              sound.killBgm()
+              sound.playBgm(["sega3"], "sega")
+              break
+			case 3:
+              sound.loadBgm(["sega4"], "sega")
+			  sound.killBgm()
+			  sound.playBgm(["sega4"], "sega")
+			  break
+             }
+          game.musicProgression = entry
+        }
+      }
+	  levelUpdateSega(game)
+    },
+    onInit: (game) => {
+	  game.hideGrid = true
+	  game.stack.updateGrid()
+      game.lineGoal = null
+      //game.colors = PIECE_COLORS.sega;
+	  segaSkin = "sega"
+	  if (game.settings.rotationSystem === "handheld") {
+		  game.colors = PIECE_COLORS.standard
+		  segaSkin = "handheld"
+	  }
+	  if (game.settings.rotationSystem === "deluxe") {
+		  game.colors = PIECE_COLORS.standard
+		  segaSkin = "deluxe"
+	  }
+	  if (game.settings.rotationSystem === "retro") {
+		  game.colors = PIECE_COLORS.retro
+		  segaSkin = "retro"
+	  }
+	  if (game.settings.rotationSystem === "original") {
+		  game.colors = PIECE_COLORS.original
+		  segaSkin = "bone"
+	  }
+	  game.makeSprite(
+		[
+			"red",
+			"orange",
+			"yellow",
+			"green",
+			"lightBlue",
+			"blue",
+			"purple",
+			"white",
+			"black",
+		],
+		["mino", "stack"],
+		segaSkin
+	  )
+      game.stat.level = 0
+      lastLevel = 0
+	  levelTimer = 0
+	  levelTimerLimit = 58000
+	  lastPieces = 0
+      game.piece.gravity = 500
+	  game.musicProgression = 0
       updateFallSpeed(game)
       game.updateStats()
     },

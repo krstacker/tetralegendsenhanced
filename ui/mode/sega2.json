@@ -1,0 +1,15 @@
+{
+  "properties": {
+    "parent": "mode/sega",
+    "langOverride": "mode-options",
+    "game": "sega2",
+    "pgmusic": "pg-sega"
+  },
+  "data": [
+    {
+      "label": "???",
+      "fixedText": true,
+      "type": "header"
+    }
+  ]
+}
