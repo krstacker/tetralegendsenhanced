@@ -401,10 +401,12 @@ export default class Game {
       : new Date().getTime()
   }
   die() {
+	document.getElementById("fireWorks").style.opacity = 1
     cancelAnimationFrame(this.request)
     this.isDead = true
   }
   end(victory = false) {
+	document.getElementById("fireWorks").style.opacity = 1
     this.resetBeatStuff()
     this.isOver = true
     $("#combo-counter-container").classList.add("hidden")

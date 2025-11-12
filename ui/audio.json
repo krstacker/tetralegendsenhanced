@@ -165,14 +165,14 @@
           "value": "newcentury"
         },
 		{
+          "label": "E60",
+          "fixedText": true,
+          "value": "e60"
+        },
+		{
           "label": "Heboris",
           "fixedText": true,
           "value": "heboris"
-        },
-		{
-          "label": "LJ65",
-          "fixedText": true,
-          "value": "lj65"
         }
       ],
       "setting": "soundbank",
@@ -203,11 +203,6 @@
           "label": "NullpoMino",
           "fixedText": true,
           "value": "nullpomino"
-        },
-		{
-          "label": "Morse",
-          "fixedText": true,
-          "value": "morse"
         },
         {
           "string": "offOption",

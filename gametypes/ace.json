@@ -23,5 +23,5 @@
   "next": {
     "nextLimit": 3
   },
-  "stats": ["score", "level", "fallspeed", "line", "piece"]
+  "stats": ["score", "level", "line", "piece"]
 }
