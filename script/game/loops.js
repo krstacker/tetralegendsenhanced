@@ -7318,7 +7318,7 @@ export const loops = {
       updateLasts(arg)
     },
     onPieceSpawn: (game) => {
-      game.stat.level = Math.floor(game.stat.line / 4 + 1)
+      game.stat.level = Math.floor(game.stat.line / 10 + 1)
       const x = game.stat.level
       const gravityEquation = (0.9 - (x - 1) * 0.001) ** (x - 1)
       game.piece.gravity = Math.max(gravityEquation * 1000, framesToMs(1 / 20))
@@ -7334,20 +7334,6 @@ export const loops = {
           sound.killBgm()
           sound.playBgm(game.settings.music[1], game.type)
 		  game.musicProgression = 1
-        }
-      }
-	  if (game.stat.level >= 32 && game.musicProgression < 2) {
-		if (game.stat.piece > 0) {
-          sound.killBgm()
-          sound.playBgm(game.settings.music[2], game.type)
-		  game.musicProgression = 2
-        }
-      }
-	  if (game.stat.level >= 64 && game.musicProgression < 3) {
-		if (game.stat.piece > 0) {
-          sound.killBgm()
-          sound.playBgm(game.settings.music[3], game.type)
-		  game.musicProgression = 3
         }
       }
       updateFallSpeed(game)
