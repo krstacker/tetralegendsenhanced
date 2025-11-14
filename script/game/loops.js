@@ -8302,11 +8302,9 @@ export const loops = {
 		  segaSkin = "bone"
 	  }
 	  if (game.settings.rotationSystem === "heboris") {
-		  game.colors = PIECE_COLORS.heboris
 		  segaSkin = "srsx"
 	  }
 	  if (settings.settings.soundbank === "heboris") {
-		  game.colors = PIECE_COLORS.heboris
 		  segaSkin = "srsx"
 	  }
 	  game.makeSprite(
@@ -8446,11 +8444,9 @@ export const loops = {
 		  segaSkin = "bone"
 	  }
 	  if (game.settings.rotationSystem === "heboris") {
-		  game.colors = PIECE_COLORS.heboris
 		  segaSkin = "srsx"
 	  }
 	  if (settings.settings.soundbank === "heboris") {
-		  game.colors = PIECE_COLORS.heboris
 		  segaSkin = "srsx"
 	  }
 	  game.makeSprite(
