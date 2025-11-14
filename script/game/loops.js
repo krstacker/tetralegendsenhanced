@@ -600,6 +600,18 @@ const updateRoundsGrade = (game) => {
 	  else if (game.stat.level >= 0)
         game.stat.grade = "N/A"
 }
+const initMusicProgression = (game) => {
+	  game.musicProgression = 0
+	  if (game.type === "standardx" || game.type === "prox") {
+		  return
+	  }
+	  if (game.settings.rotationSystem === "heboris") {
+		  game.settings.music = ["../heboris/hebo"]
+	  }
+	  if (settings.settings.soundbank === "heboris") {
+		  game.settings.music = ["../heboris/hebo"]
+	  }
+}
 
 export const loops = {
   sudden: {
@@ -681,7 +693,7 @@ export const loops = {
       game.torikanPassed = false
       game.stat.initPieces = 2
       game.endingStats.grade = true
-      game.musicProgression = 0
+      initMusicProgression(game)
       game.drop = 0
       game.updateStats()
     },
@@ -717,12 +729,18 @@ export const loops = {
         [401, 18],
         [1000, 15],
       ]
-      const musicProgressionTable = [
+      let musicProgressionTable = [
         [279, 1],
         [300, 2],
         [479, 3],
         [500, 4],
       ]
+	  if (game.settings.rotationSystem === "heboris") {
+		  musicProgressionTable = []
+	  }
+	  if (settings.settings.soundbank === "heboris") {
+		  musicProgressionTable = []
+	  }
       for (const pair of areTable) {
         const level = pair[0]
         const entry = pair[1]
@@ -905,7 +923,7 @@ export const loops = {
       game.torikanPassed = false
       game.stat.initPieces = 2
       game.endingStats.grade = true
-      game.musicProgression = 0
+      initMusicProgression(game)
       game.updateStats()
 	  updateFallSpeed(game)
     },
@@ -992,7 +1010,7 @@ export const loops = {
         [800, 24],
         [1000, 22],
       ]
-      const musicProgressionTable = [
+      let musicProgressionTable = [
         [479, 1],
         [500, 2],
         [679, 3],
@@ -1002,6 +1020,12 @@ export const loops = {
 		[979, 7],
 		[999, 8],
       ]
+	  if (game.settings.rotationSystem === "heboris") {
+		  musicProgressionTable = []
+	  }
+	  if (settings.settings.soundbank === "heboris") {
+		  musicProgressionTable = []
+	  }
       for (const pair of areTable) {
         const level = pair[0]
         const entry = pair[1]
@@ -1316,7 +1340,7 @@ export const loops = {
       game.torikanPassed = false
       game.stat.initPieces = 2
       game.endingStats.grade = true
-      game.musicProgression = 0
+      initMusicProgression(game)
       game.drop = 0
       game.updateStats()
 	  garbageTimer = 0
@@ -1363,7 +1387,7 @@ export const loops = {
         [1001, 10],
 		[1201, 10],
       ]
-      const musicProgressionTable = [
+      let musicProgressionTable = [
         [479, 1],
         [500, 2],
         [679, 3],
@@ -1371,6 +1395,12 @@ export const loops = {
 		[979, 5],
 		[1000, 6],
       ]
+	  if (game.settings.rotationSystem === "heboris") {
+		  musicProgressionTable = []
+	  }
+	  if (settings.settings.soundbank === "heboris") {
+		  musicProgressionTable = []
+	  }
       for (const pair of areTable) {
         const level = pair[0]
         const entry = pair[1]
@@ -1561,7 +1591,7 @@ export const loops = {
       game.torikanPassed = false
       game.stat.initPieces = 2
       game.endingStats.grade = true
-      game.musicProgression = 0
+      initMusicProgression(game)
       game.updateStats()
 	  updateFallSpeed(game)
     },
@@ -1705,6 +1735,12 @@ export const loops = {
 			[979, 5],
 			[999, 6],
 		  ]
+	  }
+	  if (game.settings.rotationSystem === "heboris") {
+		  musicProgressionTable = []
+	  }
+	  if (settings.settings.soundbank === "heboris") {
+		  musicProgressionTable = []
 	  }
       for (const pair of musicProgressionTable) {
         const level = pair[0]
@@ -1992,7 +2028,7 @@ export const loops = {
       game.torikanPassed = false
       game.stat.initPieces = 2
       game.endingStats.grade = true
-      game.musicProgression = 0
+      initMusicProgression(game)
       game.drop = 0
       game.updateStats()
 	  garbageTimer = 0
@@ -2039,7 +2075,7 @@ export const loops = {
         [1001, 10],
 		[1201, 10],
       ]
-      const musicProgressionTable = [
+      let musicProgressionTable = [
         [479, 1],
         [500, 2],
         [679, 3],
@@ -2047,6 +2083,12 @@ export const loops = {
 		[979, 5],
 		[1000, 6],
       ]
+	  if (game.settings.rotationSystem === "heboris") {
+		  musicProgressionTable = []
+	  }
+	  if (settings.settings.soundbank === "heboris") {
+		  musicProgressionTable = []
+	  }
       for (const pair of areTable) {
         const level = pair[0]
         const entry = pair[1]
@@ -2236,7 +2278,7 @@ export const loops = {
       game.torikanPassed = false
       game.stat.initPieces = 2
       game.endingStats.grade = true
-      game.musicProgression = 0
+      initMusicProgression(game)
       game.updateStats()
 	  updateFallSpeed(game)
     },
@@ -2380,6 +2422,12 @@ export const loops = {
 			[979, 5],
 			[999, 6],
 		  ]
+	  }
+	  if (game.settings.rotationSystem === "heboris") {
+		  musicProgressionTable = []
+	  }
+	  if (settings.settings.soundbank === "heboris") {
+		  musicProgressionTable = []
 	  }
       for (const pair of musicProgressionTable) {
         const level = pair[0]
@@ -2705,7 +2753,7 @@ export const loops = {
 	  //game.arcadeCombo = 1;
 	  game.timePassed = 0
       game.stat.initPieces = 2
-      game.musicProgression = 0
+      initMusicProgression(game)
 	  lastBravos = 0
       game.updateStats()
 	  updateFallSpeed(game)
@@ -2765,10 +2813,16 @@ export const loops = {
         [1000, 60],
 		[2000, 60],
       ]
-      const musicProgressionTable = [
+      let musicProgressionTable = [
         [979, 1],
         [1000, 2],
       ]
+	  if (game.settings.rotationSystem === "heboris") {
+		  musicProgressionTable = []
+	  }
+	  if (settings.settings.soundbank === "heboris") {
+		  musicProgressionTable = []
+	  }
       for (const pair of areTable) {
         const level = pair[0]
         const entry = pair[1]
@@ -2912,7 +2966,7 @@ export const loops = {
 	  //game.arcadeCombo = 1;
 	  game.timePassed = 0
       game.stat.initPieces = 2
-      game.musicProgression = 0
+      initMusicProgression(game)
 	  lastBravos = 0
       game.updateStats()
 	  updateFallSpeed(game)
@@ -2972,10 +3026,16 @@ export const loops = {
         [1000, 60],
 		[2000, 60],
       ]
-      const musicProgressionTable = [
+      let musicProgressionTable = [
         [979, 1],
         [1000, 2],
       ]
+	  if (game.settings.rotationSystem === "heboris") {
+		  musicProgressionTable = []
+	  }
+	  if (settings.settings.soundbank === "heboris") {
+		  musicProgressionTable = []
+	  }
       for (const pair of areTable) {
         const level = pair[0]
         const entry = pair[1]
@@ -3118,7 +3178,7 @@ export const loops = {
 	  game.stack.isFading = false
 	  game.timePassed = 0
       game.stat.initPieces = 2
-      game.musicProgression = 0
+      initMusicProgression(game)
 	  game.piece.gravity = framesToMs(1 / 20)
       game.updateStats()
 	  updateFallSpeed(game)
@@ -3155,11 +3215,17 @@ export const loops = {
         [401, 18],
         [1000, 15],
       ]
-	  const musicProgressionTable = [
+	  let musicProgressionTable = [
         [979, 1],
         [1000, 2],
 		[1279, 1],
       ]
+	  if (game.settings.rotationSystem === "heboris") {
+		  musicProgressionTable = []
+	  }
+	  if (settings.settings.soundbank === "heboris") {
+		  musicProgressionTable = []
+	  }
       for (const pair of areTable) {
         const level = pair[0]
         const entry = pair[1]
@@ -3334,7 +3400,7 @@ export const loops = {
 	  //game.arcadeCombo = 1;
 	  game.timePassed = 0
       game.stat.initPieces = 2
-      game.musicProgression = 0
+      initMusicProgression(game)
 	  game.piece.gravity = framesToMs(1 / 20)
       game.updateStats()
 	  updateFallSpeed(game)
@@ -3371,11 +3437,17 @@ export const loops = {
         [401, 18],
         [1000, 15],
       ]
-	  const musicProgressionTable = [
+	  let musicProgressionTable = [
         [979, 1],
         [1000, 2],
 		[1279, 1],
       ]
+	  if (game.settings.rotationSystem === "heboris") {
+		  musicProgressionTable = []
+	  }
+	  if (settings.settings.soundbank === "heboris") {
+		  musicProgressionTable = []
+	  }
       for (const pair of areTable) {
         const level = pair[0]
         const entry = pair[1]
@@ -3598,7 +3670,7 @@ export const loops = {
 	  //game.arcadeCombo = 1;
       game.rta = 0
       game.stat.initPieces = 2
-      game.musicProgression = 0
+      initMusicProgression(game)
 	  game.piece.gravity = framesToMs(1 / 20)
       game.updateStats()
 	  updateFallSpeed(game)
@@ -3646,7 +3718,7 @@ export const loops = {
 		[2001, 16],
 		[2601, 10],
       ]
-      const musicProgressionTable = [
+      let musicProgressionTable = [
         [279, 1],
         [300, 2],
 		[679, 3],
@@ -3656,6 +3728,12 @@ export const loops = {
 		[1279, 7],
 		[1300, 8],
       ]
+	  if (game.settings.rotationSystem === "heboris") {
+		  musicProgressionTable = []
+	  }
+	  if (settings.settings.soundbank === "heboris") {
+		  musicProgressionTable = []
+	  }
       for (const pair of areTable) {
         const level = pair[0]
         const entry = pair[1]
@@ -3874,7 +3952,7 @@ export const loops = {
       game.stat.initPieces = 2
 	  game.endingStats.grade = true
 	  game.redrawOnLevelUp = true
-      game.musicProgression = 0
+      initMusicProgression(game)
 	  game.piece.gravity = framesToMs(1 / 20)
       game.updateStats()
 	  updateFallSpeed(game)
@@ -3922,7 +4000,7 @@ export const loops = {
 		[2001, 16],
 		[2601, 10],
       ]
-      const musicProgressionTable = [
+      let musicProgressionTable = [
         [279, 1],
         [300, 2],
 		[679, 3],
@@ -3932,6 +4010,12 @@ export const loops = {
 		[1279, 7],
 		[1300, 8],
       ]
+	  if (game.settings.rotationSystem === "heboris") {
+		  musicProgressionTable = []
+	  }
+	  if (settings.settings.soundbank === "heboris") {
+		  musicProgressionTable = []
+	  }
       for (const pair of areTable) {
         const level = pair[0]
         const entry = pair[1]
@@ -4300,7 +4384,7 @@ export const loops = {
         [10, 4],
         [13, 4],
       ]
-	  const musicProgressionTable = [
+	  let musicProgressionTable = [
         [47, 1],
         [50, 2],
         [97, 3],
@@ -4309,6 +4393,12 @@ export const loops = {
         [150, 6],
 		[197, 7],
       ]
+	  if (game.settings.rotationSystem === "heboris") {
+		  musicProgressionTable = []
+	  }
+	  if (settings.settings.soundbank === "heboris") {
+		  musicProgressionTable = []
+	  }
 	  const lockDelayTable = [
 		[25, 30],
 		[50, 30],
@@ -4710,7 +4800,7 @@ export const loops = {
 	  game.timePassed = 0
 	  game.timePassedOffset = 0
 	  game.timeGoal = 120000
-	  game.musicProgression = 0
+	  initMusicProgression(game)
 	  game.ace = true
     },
   },
@@ -4965,7 +5055,7 @@ export const loops = {
         [10, 4],
         [13, 4],
       ]
-	  const musicProgressionTable = [
+	  let musicProgressionTable = [
         [47, 1],
         [50, 2],
         [97, 3],
@@ -4974,6 +5064,12 @@ export const loops = {
         [150, 6],
 		[197, 7],
       ]
+	  if (game.settings.rotationSystem === "heboris") {
+		  musicProgressionTable = []
+	  }
+	  if (settings.settings.soundbank === "heboris") {
+		  musicProgressionTable = []
+	  }
 	  const lockDelayTable = [
 		[25, 30],
 		[50, 30],
@@ -5375,7 +5471,7 @@ export const loops = {
 	  game.timePassed = 0
 	  game.timePassedOffset = 0
 	  game.timeGoal = 120000
-	  game.musicProgression = 0
+	  initMusicProgression(game)
 	  game.ace = true
     },
   },
@@ -7355,7 +7451,7 @@ export const loops = {
       lastLevel = parseInt(settings.game.standardx.startingLevel)
       game.piece.gravity = 1000
       updateFallSpeed(game)
-	  game.musicProgression = 0
+	  initMusicProgression(game)
       game.updateStats()
     },
   },
@@ -7729,6 +7825,12 @@ export const loops = {
       // lastLevel = 0;
       game.stat.level = settings.game.deluxe.startingLevel
       lastLevel = parseInt(settings.game.deluxe.startingLevel)
+	  if (game.settings.rotationSystem === "heboris") {
+		  game.settings.music = ["../heboris/hebo"]
+	  }
+	  if (settings.settings.soundbank === "heboris") {
+		  game.settings.music = ["../heboris/hebo"]
+	  }
       if (settings.settings.skin !== "auto") {
         game.makeSprite(
           [
@@ -7833,6 +7935,12 @@ export const loops = {
         sound.add("levelup")
         game.appends.level = "♥"
       }
+	  if (game.settings.rotationSystem === "heboris") {
+		  game.settings.music = ["../heboris/hebo"]
+	  }
+	  if (settings.settings.soundbank === "heboris") {
+		  game.settings.music = ["../heboris/hebo"]
+	  }
       if (settings.settings.skin !== "auto") {
         game.makeSprite(
           [
@@ -7973,6 +8081,12 @@ export const loops = {
       game.stat.level = settings.game.retro.startingLevel
       game.redrawOnLevelUp = true
       lastLevel = parseInt(settings.game.retro.startingLevel)
+	  if (game.settings.rotationSystem === "heboris") {
+		  game.settings.music = ["../heboris/hebo"]
+	  }
+	  if (settings.settings.soundbank === "heboris") {
+		  game.settings.music = ["../heboris/hebo"]
+	  }
       if (settings.settings.skin !== "auto") {
         game.makeSprite(
           [
@@ -8182,6 +8296,7 @@ export const loops = {
 	  levelTimerLimit = 58000
 	  lastPieces = 0
       game.piece.gravity = 500
+	  initMusicProgression(game)
       updateFallSpeed(game)
       game.updateStats()
     },
@@ -8237,11 +8352,17 @@ export const loops = {
       game.piece.lockDelayLimit = 500
       updateFallSpeed(game)
 	  game.piece.ghostIsVisible = false
-	  const musicProgressionTable = [
+	  let musicProgressionTable = [
         [8, 1],
         [16, 2],
         [24, 3],
       ]
+	  if (game.settings.rotationSystem === "heboris") {
+		  musicProgressionTable = []
+	  }
+	  if (settings.settings.soundbank === "heboris") {
+		  musicProgressionTable = []
+	  }
 	  for (const pair of musicProgressionTable) {
         const level = pair[0]
         const entry = pair[1]
@@ -8319,7 +8440,7 @@ export const loops = {
 	  levelTimerLimit = 58000
 	  lastPieces = 0
       game.piece.gravity = 500
-	  game.musicProgression = 0
+	  initMusicProgression(game)
       updateFallSpeed(game)
       game.updateStats()
     },
