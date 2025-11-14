@@ -763,40 +763,40 @@ export default class Piece extends GameModule {
     const nextBlocks = []
     const nextPiece = this.parent.next.queue[0]
 
-    let nextthis.shape
+    let nextPieceShape
     let spawnOffsets
 
     switch (settings.settings.shapeOverride) {
       case "mono":
-        nextthis.shape =
+        nextPieceShape =
           MONOMINO_PIECES[nextPiece].shape[
             INITIAL_ORIENTATION[this.parent.rotationSystem][nextPiece]
           ]
         spawnOffsets = SPAWN_OFFSETS["monomino"][nextPiece]
         break
       case "do":
-        nextthis.shape =
+        nextPieceShape =
           DOMINO_PIECES[nextPiece].shape[
             INITIAL_ORIENTATION[this.parent.rotationSystem][nextPiece]
           ]
         spawnOffsets = SPAWN_OFFSETS["monomino"][nextPiece]
         break
       case "tro":
-        nextthis.shape =
+        nextPieceShape =
           TROMINO_PIECES[nextPiece].shape[
             INITIAL_ORIENTATION[this.parent.rotationSystem][nextPiece]
           ]
         spawnOffsets = SPAWN_OFFSETS[this.parent.rotationSystem][nextPiece]
         break
       case "pento":
-        nextthis.shape =
+        nextPieceShape =
           PENTOMINO_PIECES[nextPiece].shape[
             INITIAL_ORIENTATION[this.parent.rotationSystem][nextPiece]
           ]
         spawnOffsets = SPAWN_OFFSETS[this.parent.rotationSystem][nextPiece]
         break
       default:
-        nextthis.shape =
+        nextPieceShape =
           PIECES[nextPiece].shape[
             INITIAL_ORIENTATION[this.parent.rotationSystem][nextPiece]
           ]
@@ -804,9 +804,9 @@ export default class Piece extends GameModule {
         break
     }
 
-    for (let y = 0; y < nextthis.shape.length; y++) {
-      for (let x = 0; x < nextthis.shape[y].length; x++) {
-        const isFilled = nextthis.shape[y][x]
+    for (let y = 0; y < nextPieceShape.length; y++) {
+      for (let x = 0; x < nextPieceShape[y].length; x++) {
+        const isFilled = nextPieceShape[y][x]
         if (isFilled) {
           nextBlocks.push([
             x + spawnOffsets[0] + this.xSpawnOffset,
