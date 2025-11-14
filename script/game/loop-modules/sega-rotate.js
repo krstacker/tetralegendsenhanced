@@ -11,11 +11,11 @@ export default function segaRotate(arg) {
   let spawnY = piece.lowestY
   let pieceY = piece.y + spawnY
   if (pieceShape === "I") {
-	  if (pieceY < spawnY + 2) {
+	  if (pieceY <= spawnY + 1) {
 		  return
 	  }
   } else {
-	  if (pieceY < spawnY + 1) {
+	  if (pieceY <= spawnY) {
 		  return
 	  }
   }
