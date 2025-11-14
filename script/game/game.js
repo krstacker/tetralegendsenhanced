@@ -190,9 +190,10 @@ export default class Game {
 		} else {
 			if (
 			soundbankName === "heboris" ||
-			this.settings.rotationSystem === "handheld" ||
-			this.settings.rotationSystem === "deluxe" ||
-			this.settings.rotationSystem === "retro" ||
+			(this.settings.rotationSystem === "handheld" && gametype.includes("sega")) ||
+			(this.settings.rotationSystem === "deluxe" && gametype.includes("sega")) ||
+			(this.settings.rotationSystem === "retro" && gametype.includes("sega")) ||
+			(this.settings.rotationSystem === "original" && gametype.includes("sega")) ||
 			this.settings.rotationSystem === "heboris"
 			) {
 				sound.load("heboris")
