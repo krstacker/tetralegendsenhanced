@@ -611,6 +611,11 @@ const initMusicProgression = (game) => {
 	  if (settings.settings.soundbank === "heboris") {
 		  game.settings.music = ["../heboris/hebo"]
 	  }
+	  if (game.type === "sega" || game.type === "sega2") {
+		  if (segaSkin !== "sega") {
+			  game.settings.music = ["../heboris/hebo"]
+		  }
+	  }
 }
 
 export const loops = {
@@ -8316,13 +8321,13 @@ export const loops = {
 		["mino", "stack"],
 		segaSkin
 	  )
+	  initMusicProgression(game)
       game.stat.level = 0
       lastLevel = 0
 	  levelTimer = 0
 	  levelTimerLimit = 58000
 	  lastPieces = 0
       game.piece.gravity = 500
-	  initMusicProgression(game)
       updateFallSpeed(game)
       game.updateStats()
     },
@@ -8452,13 +8457,13 @@ export const loops = {
 		["mino", "stack"],
 		segaSkin
 	  )
+	  initMusicProgression(game)
       game.stat.level = 0
       lastLevel = 0
 	  levelTimer = 0
 	  levelTimerLimit = 58000
 	  lastPieces = 0
       game.piece.gravity = 500
-	  initMusicProgression(game)
       updateFallSpeed(game)
       game.updateStats()
     },
