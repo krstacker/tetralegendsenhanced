@@ -1272,12 +1272,12 @@ export default class Piece extends GameModule {
   }
   rotateLeft() {
 	if (this.parent.rotationSystem === "sega") {
-		if (this.shape === "Z") {
-			if (this.y + this.lowestY - 2 <= this.lowestY) {
+		if (this.name === "Z") {
+			if (this.y + this.lowestY - 1 <= this.lowestY) {
 				return
 			}
-		} else if (this.shape === "I" || this.shape === "T") {
-			if (this.y + this.lowestY + 2 <= this.lowestY) {
+		} else if (this.name === "I" || this.name === "T") {
+			if (this.y + this.lowestY + 1 <= this.lowestY) {
 				return
 			}
 		} else {
@@ -1290,12 +1290,12 @@ export default class Piece extends GameModule {
   }
   rotateRight() {
 	if (this.parent.rotationSystem === "sega") {
-		if (this.shape === "Z") {
-			if (this.y + this.lowestY - 2 <= this.lowestY) {
+		if (this.name === "Z") {
+			if (this.y + this.lowestY - 1 <= this.lowestY) {
 				return
 			}
-		} else if (this.shape === "I" || this.shape === "T") {
-			if (this.y + this.lowestY + 2 <= this.lowestY) {
+		} else if (this.name === "I" || this.name === "T") {
+			if (this.y + this.lowestY + 1 <= this.lowestY) {
 				return
 			}
 		} else {
@@ -1308,12 +1308,12 @@ export default class Piece extends GameModule {
   }
   rotate180() {
 	if (this.parent.rotationSystem === "sega") {
-		if (this.shape === "Z") {
-			if (this.y + this.lowestY - 2 <= this.lowestY) {
+		if (this.name === "Z") {
+			if (this.y + this.lowestY - 1 <= this.lowestY) {
 				return
 			}
-		} else if (this.shape === "I" || this.shape === "T") {
-			if (this.y + this.lowestY + 2 <= this.lowestY) {
+		} else if (this.name === "I" || this.name === "T") {
+			if (this.y + this.lowestY + 1 <= this.lowestY) {
 				return
 			}
 		} else {
