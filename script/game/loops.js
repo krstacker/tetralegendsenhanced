@@ -1070,7 +1070,11 @@ export const loops = {
         const entry = pair[1]
         if (game.stat.level < level) {
           if (testMode === false) {
-			game.piece.lockDelayLimit = Math.ceil(framesToMs(entry))
+			if (isEndRoll) {
+				game.piece.lockDelayLimit = Math.ceil(framesToMs(30))
+			} else {
+				game.piece.lockDelayLimit = Math.ceil(framesToMs(entry))
+			}
 		  } else {
 			game.piece.lockDelayLimit = Math.ceil(framesToMs(60))
 		  }
@@ -1720,7 +1724,11 @@ export const loops = {
         const entry = pair[1]
         if (game.stat.level < level) {
           if (testMode === false) {
-			game.piece.lockDelayLimit = Math.ceil(framesToMs(entry))
+			if (isEndRoll) {
+				game.piece.lockDelayLimit = Math.ceil(framesToMs(30))
+			} else {
+				game.piece.lockDelayLimit = Math.ceil(framesToMs(entry))
+			}
 		  } else {
 			game.piece.lockDelayLimit = Math.ceil(framesToMs(60))
 		  }
@@ -2420,7 +2428,11 @@ export const loops = {
         const entry = pair[1]
         if (game.stat.level < level) {
           if (testMode === false) {
-			game.piece.lockDelayLimit = Math.ceil(framesToMs(entry))
+			if (isEndRoll) {
+				game.piece.lockDelayLimit = Math.ceil(framesToMs(30))
+			} else {
+				game.piece.lockDelayLimit = Math.ceil(framesToMs(entry))
+			}
 		  } else {
 			game.piece.lockDelayLimit = Math.ceil(framesToMs(60))
 		  }
