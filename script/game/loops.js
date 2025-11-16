@@ -877,15 +877,11 @@ export const loops = {
 		  if (isEndRoll === false) {
 			  isEndRoll = true
 			  game.stack.endRollStart()
-			  if (testMode === false && game.rta <= 600000 && game.stat.line >= 180) {
+			  if (game.rta <= 600000 && game.stat.line >= 180) {
 				game.stack.isHidden = true
 				game.stack.isFading = false
 			  } else {
-				if (testMode === false) {
-					game.stack.isFading = true
-				} else {
-					game.stack.isFading = false
-				}
+				game.stack.isFading = true
 				game.stack.isHidden = false
 			  }
 			  rtaGoal = game.rta + 55000
@@ -1557,15 +1553,11 @@ export const loops = {
 		if (isEndRoll === false) {
 			isEndRoll = true
 			game.stack.endRollStart()
-			if (testMode === false && regretsPenalty <= 0 && game.rta <= 600000 && game.stat.line >= 270) {
+			if (regretsPenalty <= 0 && game.rta <= 600000 && game.stat.line >= 270) {
 				game.stack.isHidden = true
 				game.stack.isFading = false
 			} else {
-				if (testMode === false) {
-					game.stack.isFading = true
-				} else {
-					game.stack.isFading = false
-				}
+				game.stack.isFading = true
 				game.stack.isHidden = false
 			}
 			rtaGoal = game.rta + 55000
@@ -2261,15 +2253,11 @@ export const loops = {
 		if (isEndRoll === false) {
 			isEndRoll = true
 			game.stack.endRollStart()
-			if (testMode === false && regretsPenalty <= 0 && game.rta <= 600000 && game.stat.line >= 270) {
+			if (regretsPenalty <= 0 && game.rta <= 600000 && game.stat.line >= 270) {
 				game.stack.isHidden = true
 				game.stack.isFading = false
 			} else {
-				if (testMode === false) {
-					game.stack.isFading = true
-				} else {
-					game.stack.isFading = false
-				}
+				game.stack.isFading = true
 				game.stack.isHidden = false
 			}
 			rtaGoal = game.rta + 55000
@@ -3357,21 +3345,11 @@ export const loops = {
 		  game.piece.gravity = framesToMs(1 / 20)
 	  } else {
 		  if (game.stat.level < 1100) {
-			if (testMode === false) {
-				game.stack.isHidden = false
-				game.stack.isFading = true
-			} else {
-				game.stack.isHidden = false
-				game.stack.isFading = false
-			}
+			game.stack.isHidden = false
+			game.stack.isFading = true
 		  } else {
-			if (testMode === false) {
-				game.stack.isHidden = true
-				game.stack.isFading = false
-			} else {
-				game.stack.isHidden = false
-				game.stack.isFading = false
-			}
+			game.stack.isHidden = true
+			game.stack.isFading = false
 		  }
 		  game.piece.gravity = framesToMs(1 / 20)
       }
@@ -3578,21 +3556,11 @@ export const loops = {
 		  game.piece.gravity = framesToMs(1 / 20)
 	  } else {
 		  if (game.stat.level < 1100) {
-			if (testMode === false) {
-				game.stack.isHidden = false
-				game.stack.isFading = true
-			} else {
-				game.stack.isHidden = false
-				game.stack.isFading = false
-			}
+			game.stack.isHidden = false
+			game.stack.isFading = true
 		  } else {
-			if (testMode === false) {
-				game.stack.isHidden = true
-				game.stack.isFading = false
-			} else {
-				game.stack.isHidden = false
-				game.stack.isFading = false
-			}
+			game.stack.isHidden = true
+			game.stack.isFading = false
 		  }
 		  game.piece.gravity = framesToMs(1 / 20)
       }
