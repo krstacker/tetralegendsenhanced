@@ -931,6 +931,8 @@ export default class Stack extends GameModule {
     const cellSize = this.parent.cellSize
     const buffer = this.parent.bufferPeek
     const ctx = this.ctx
+	let flashCtx = this.parent.piece.ctx
+	let lineClearCtx = this.parent.piece.ctx
     const flash = (
       "0" +
       Math.floor((1 - this.flashTime / this.flashLimit) * 255).toString(16)
@@ -996,7 +998,7 @@ export default class Stack extends GameModule {
           y * cellSize + cellSize * buffer - cellSize * this.hiddenHeight
         img.height = cellSize
 		if (this.isHidden !== true && this.isFading !== true) {
-			ctx.globalCompositeOperation = "overlay"
+			ctx.globalCompositeOperation = "source-over"
 			ctx.fillStyle = "black"
 			ctx.fillRect(xPos, Math.floor(yPos), cellSize, cellSize)
 		}
@@ -1011,19 +1013,20 @@ export default class Stack extends GameModule {
     // Flash
     if (this.flashTime < this.flashLimit) {
       for (let i = 0; i < this.flashX.length; i++) {
-        ctx.globalCompositeOperation = "overlay"
+        flashCtx.globalCompositeOperation = "overlay"
         const x = this.flashX[i] * cellSize
         const y =
           this.flashY[i] * cellSize +
           cellSize * buffer -
           cellSize * this.hiddenHeight
-        ctx.fillStyle = `#ffffff${flash}`
+		flashCtx.clearRect(x, Math.floor(y), cellSize, cellSize)
+        flashCtx.fillStyle = `#ffffff${flash}`
         if (
           settings.settings.lockFlash !== "off" &&
           settings.settings.lockFlash !== "flash" &&
-		  this.parent.piece.useBoneBlocks !== true
+		  this.parent.useBoneBlocks !== true
         ) {
-          ctx.fillRect(x, Math.floor(y), cellSize, cellSize)
+          flashCtx.fillRect(x, Math.floor(y), cellSize, cellSize)
         }
         if (settings.settings.lockFlash === "shine") {
           const float = (this.flashTime * 2) / this.flashLimit
@@ -1050,28 +1053,28 @@ export default class Stack extends GameModule {
           const cornerX = Math.min(distance1x, distance2x)
           const cornerY = Math.min(distance1y, distance2y)
 
-          ctx.beginPath()
-          ctx.moveTo(x + distance1x, Math.floor(y + distance1y))
-          ctx.lineTo(
+          flashCtx.beginPath()
+          flashCtx.moveTo(x + distance1x, Math.floor(y + distance1y))
+          flashCtx.lineTo(
             x + cellSize - distance1y,
             Math.floor(y + cellSize - distance1x)
           )
-          ctx.lineTo(x + cellSize - cornerY, Math.floor(y + cellSize - cornerX))
-          ctx.lineTo(
+          flashCtx.lineTo(x + cellSize - cornerY, Math.floor(y + cellSize - cornerX))
+          flashCtx.lineTo(
             x + cellSize - distance2y,
             Math.floor(y + cellSize - distance2x)
           )
-          ctx.lineTo(x + distance2x, Math.floor(y + distance2y))
-          ctx.lineTo(x + cornerX, Math.floor(y + cornerY))
-          ctx.fillStyle = "#fff"
-          ctx.fill()
+          flashCtx.lineTo(x + distance2x, Math.floor(y + distance2y))
+          flashCtx.lineTo(x + cornerX, Math.floor(y + cornerY))
+          flashCtx.fillStyle = "#fff"
+          flashCtx.fill()
         }
         // Solid white 2f
         if (this.flashTime < 50 && settings.settings.lockFlash !== "off"
-		&& this.parent.piece.useBoneBlocks !== true) {
-          ctx.globalCompositeOperation = "source-over"
-          ctx.fillStyle = `#fff`
-          ctx.fillRect(x, Math.floor(y), cellSize, cellSize)
+		&& this.parent.useBoneBlocks !== true) {
+          flashCtx.globalCompositeOperation = "source-over"
+          flashCtx.fillStyle = `#fff`
+          flashCtx.fillRect(x, Math.floor(y), cellSize, cellSize)
         }
       }
     }
@@ -1095,7 +1098,6 @@ export default class Stack extends GameModule {
         brightnessHex = "ff"
       }
       ctx.fillStyle = `#ffffff${brightnessHex}`
-	  let lineClearCtx = this.parent.piece.ctx
 	  lineClearCtx.fillStyle = ctx.fillStyle
       for (let i = 0; i < this.toCollapse.length; i++) {
         ctx.clearRect(
