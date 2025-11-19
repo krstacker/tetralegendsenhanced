@@ -995,18 +995,21 @@ export default class Stack extends GameModule {
         const yPos =
           y * cellSize + cellSize * buffer - cellSize * this.hiddenHeight
         img.height = cellSize
-		if (this.isHidden === false && this.isFading === false) {
-			ctx.fillStyle = "#000000"
-			ctx.fillRect(xPos, Math.floor(yPos), cellSize, cellSize)
+		if (this.isHidden !== true && this.isFading !== true) {
 			ctx.globalCompositeOperation = "overlay"
+			ctx.fillStyle = "black"
+			ctx.fillRect(xPos, Math.floor(yPos), cellSize, cellSize)
 		}
         ctx.drawImage(img, xPos, Math.floor(yPos), cellSize, cellSize)
-        ctx.globalCompositeOperation = "multiply"
+        if (this.isHidden || this.isFading) {
+			ctx.globalCompositeOperation = "multiply"
+		}
         ctx.fillStyle = "#0003"
         ctx.fillRect(xPos, Math.floor(yPos), cellSize, cellSize)
       }
     }
     // Flash
+	ctx = this.parent.piece.ctx
     if (this.flashTime < this.flashLimit) {
       for (let i = 0; i < this.flashX.length; i++) {
         ctx.globalCompositeOperation = "overlay"
@@ -1073,6 +1076,7 @@ export default class Stack extends GameModule {
         }
       }
     }
+	ctx = this.ctx
     // Line clear animation
 	let clearDirtyCells = true
     if (this.toCollapse.length > 0 
