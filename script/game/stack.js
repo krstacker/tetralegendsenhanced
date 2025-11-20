@@ -1,5 +1,5 @@
 import GameModule from "./game-module.js"
-import $, { negativeMod, resetAnimation, hsvToRgb } from "../shortcuts.js"
+import $, { negativeMod, resetAnimation, hsvToRgb, toCtx } from "../shortcuts.js"
 import sound from "../sound.js"
 import locale from "../lang.js"
 import settings from "../settings.js"
