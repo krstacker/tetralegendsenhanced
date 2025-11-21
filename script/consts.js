@@ -3692,8 +3692,8 @@ KICK_TEMPLATES.drs = {
   x: KICK_TEMPLATES.asc.x,  
   I: KICK_TEMPLATES.tetrax.I,
   LJ: KICK_TEMPLATES.asc.x,
-  T: KICK_TEMPLATES.tetrax.x,
-  O: KICK_TEMPLATES.asc.x,
+  T: KICK_TEMPLATES.asc.x,
+  O: KICK_TEMPLATES.tetrax.x,
 }
 
 export const KICK_TABLES = {
