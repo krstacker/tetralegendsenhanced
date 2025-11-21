@@ -112,8 +112,7 @@ export default class Game {
 	this.nonSingleClears = 0
 	this.bufferAre = -1
 	this.bufferAreLine = -1
-	this.areBuffered = true
-	this.areLineBuffered = true
+	this.areLineModified = false
     loadGameType(gametype)
       .then((gameData) => {
         gtag("event", "play", {
@@ -1131,9 +1130,15 @@ export default class Game {
             })
 			if (game.rotationSystem === "arsae") {
 				if (input.getGameDown("specialKey")) {
-					game.areBuffered = false
 					game.piece.areLimit = 0
-					game.piece.areLimitLineModifier = game.piece.areLineLimit
+					if (game.piece.areLimitLineModifier <= 0) {
+						if (game.areLineModified === false) {
+							game.areLineModified = true
+							game.piece.areLimitLineModifier += game.piece.areLineLimit
+						}
+					} else {
+						game.piece.areLimitLineModifier = game.piece.areLineLimit
+					}
 				}
 			}
 			if (game.rotationSystem === "drs") {
@@ -1145,17 +1150,22 @@ export default class Game {
 				input.getGameDown("rotate180") ||
 				input.getGameDown("hold")
 				) {
-					game.areBuffered = false
-					game.areLineBuffered = false
 					game.piece.areLimit = 0
 					game.piece.areLineLimit = 0
-					game.piece.areLimitLineModifier = game.piece.areLineLimit
+					game.piece.areLimitLineModifier = 0
 					settings.settings.stillShowFullActionTextDespiteZeroLineClearAre = true
 				}
 			}
 			if (game.rotationSystem === "ds") {
 				game.piece.areLimit = 0
-				game.piece.areLimitLineModifier = game.piece.areLineLimit
+				if (game.piece.areLimitLineModifier <= 0) {
+					if (game.areLineModified === false) {
+						game.areLineModified = true
+						game.piece.areLimitLineModifier += game.piece.areLineLimit
+					}
+				} else {
+					game.piece.areLimitLineModifier = game.piece.areLineLimit
+				}
 			}
           }
           game.particle.update(msPassed)
